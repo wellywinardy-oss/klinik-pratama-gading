@@ -25,6 +25,149 @@
 <meta name="twitter:image" content="https://klinikpratamagading.com/assets/logo-gading.png">
 
     <style>
+
+.doctor-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.bpjs-logo {
+    width: 42px;
+    height: auto;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.bpjs-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+@media (max-width: 850px) {
+
+.schedule-wrapper table,
+.schedule-wrapper tbody,
+.schedule-wrapper tr,
+.schedule-wrapper td {
+    display: block;
+    width: 100%;
+}
+
+.schedule-wrapper thead {
+    display: none;
+}
+
+.schedule-wrapper table {
+    min-width: 0;
+}
+
+.schedule-wrapper tbody tr {
+    margin-bottom: 14px;
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.schedule-wrapper tbody td {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 10px;
+    padding: 6px 0;
+    border: none;
+    font-size: 0.88rem;
+}
+
+.schedule-wrapper tbody td::before {
+    font-weight: 700;
+    color: #0f766e;
+}
+
+.schedule-wrapper tbody td:nth-child(1)::before {
+    content: "Pelayanan";
+}
+
+.schedule-wrapper tbody td:nth-child(2)::before {
+    content: "Dokter";
+}
+
+.schedule-wrapper tbody td:nth-child(3)::before {
+    content: "Hari";
+}
+
+.schedule-wrapper tbody td:nth-child(4)::before {
+    content: "Jam Praktik";
+}
+
+.doctor-cell {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+}
+
+.doctor-cell .bpjs-logo {
+    display: inline-block;
+    width: 32px;
+    margin: 0 0 0 6px;
+    vertical-align: middle;
+}
+
+    
+    .schedule-wrapper table {
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    .schedule-wrapper th,
+    .schedule-wrapper td {
+        padding: 10px 6px;
+        font-size: 0.78rem;
+        white-space: normal;
+        overflow-wrap: break-word;
+        vertical-align: top;
+    }
+
+    .doctor-cell {
+        display: block;
+    }
+
+    .doctor-cell .bpjs-logo {
+        display: block;
+        width: 36px;
+        margin-top: 6px;
+    }
+
+    .bpjs-note {
+        align-items: flex-start;
+        font-size: 0.78rem;
+    }
+
+    .bpjs-note .bpjs-logo {
+        width: 36px;
+        flex-shrink: 0;
+    }
+
+    .doctor-cell > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+}
+
+.doctor-cell > span .bpjs-logo {
+    display: inline-block;
+    width: 30px;
+    height: auto;
+    margin: 0;
+    flex-shrink: 0;
+}
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -726,52 +869,109 @@ tbody tr:hover {
 
             <div class="schedule-wrapper">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Pelayanan</th>
-                            <th>Hari</th>
-                            <th>Jam Praktik</th>
-                        </tr>
-                    </thead>
+    <thead>
+        <tr>
+            <th>Pelayanan</th>
+            <th>Dokter</th>
+            <th>Hari</th>
+            <th>Jam Praktik</th>
+        </tr>
+    </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>Dokter Umum</td>
-                            <td>Senin – Sabtu</td>
-                            <td>09.00 – 12.00 & 18.00 – 21.00</td>
-                        </tr>
+    <tbody>
+        <tr>
+            <td>Dokter Umum</td>
+            <td class="doctor-cell">
+    <span>
+        dr. Nurliah
+        <img
+            src="assets/bpjs-kesehatan.png"
+            alt="Melayani BPJS Kesehatan"
+            class="bpjs-logo"
+        >
+    </span>
+</td>
+            <td>Senin – Sabtu</td>
+            <td>09.00 – 12.00</td>
+        </tr>
 
-                        <tr>
-                            <td>Dokter Gigi</td>
-                            <td>Senin – Jumat</td>
-                            <td>14.00 – 18.00 & 18.00 – 21.00</td>
-                        </tr>
+        <tr>
+            <td>Dokter Umum</td>
+            <td class="doctor-cell">
+    <span>
+        dr. Ari Subandrio
+        <img
+            src="assets/bpjs-kesehatan.png"
+            alt="Melayani BPJS Kesehatan"
+            class="bpjs-logo"
+        >
+    </span>
+</td>
+            <td>Senin – Sabtu</td>
+            <td>18.00 – 21.00</td>
+        </tr>
 
-                        <tr>
-                            <td>Dokter Gigi</td>
-                            <td>Sabtu</td>
-                            <td>14.00 – 19.00</td>
-                        </tr>
+        <tr>
+            <td>Dokter Gigi</td>
+            <td class="doctor-cell">
+    <span>
+        drg. Dewi Malohing
+        <img
+            src="assets/bpjs-kesehatan.png"
+            alt="Melayani BPJS Kesehatan"
+            class="bpjs-logo"
+        >
+    </span>
+</td>
+            <td>Senin – Jumat</td>
+            <td>14.00 – 18.00</td>
+        </tr>
 
-                        <tr>
-                            <td>Obstetri & Ginekologi</td>
-                            <td>Senin – Jumat</td>
-                            <td>18.00 – selesai</td>
-                        </tr>
+        <tr>
+            <td>Dokter Gigi</td>
+            <td>drg. Ria Velina Agustin</td>
+            <td>Senin – Jumat</td>
+            <td>18.00 – 21.00</td>
+        </tr>
 
-                        <tr>
-                            <td>Obstetri & Ginekologi</td>
-                            <td>Sabtu</td>
-                            <td>10.00 – selesai</td>
-                        </tr>
+        <tr>
+            <td>Dokter Gigi</td>
+            <td>drg. Ria Velina Agustin</td>
+            <td>Sabtu</td>
+            <td>14.00 – 19.00</td>
+        </tr>
 
-                        <tr>
-                            <td>Penyakit Dalam</td>
-                            <td>Senin – Jumat</td>
-                            <td>18.00 – 21.00</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <tr>
+            <td>Obstetri &amp; Ginekologi</td>
+            <td>dr. Muh. Syafri Busra, Sp.OG, M.Kes</td>
+            <td>Senin – Jumat</td>
+            <td>18.00 – selesai</td>
+        </tr>
+
+        <tr>
+            <td>Obstetri &amp; Ginekologi</td>
+            <td>dr. Muh. Syafri Busra, Sp.OG, M.Kes</td>
+            <td>Sabtu</td>
+            <td>10.00 – selesai</td>
+        </tr>
+
+        <tr>
+            <td>Penyakit Dalam</td>
+            <td>dr. Felix Harianto, Sp.PD</td>
+            <td>Senin – Jumat</td>
+            <td>18.00 – 21.00</td>
+        </tr>
+    </tbody>
+</table>
+
+<p class="bpjs-note">
+    <img
+        src="assets/bpjs-kesehatan.png"
+        alt="Logo BPJS Kesehatan"
+        class="bpjs-logo"
+    >
+    = dokter melayani pasien BPJS Kesehatan sesuai ketentuan dan jadwal yang berlaku.
+</p>
             </div>
 
         </div>
