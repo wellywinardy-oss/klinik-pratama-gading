@@ -49,7 +49,120 @@
     color: #64748b;
 }
 
+        /* EDUCATION */
+
+        .education-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    border-radius: 18px 18px 0 0;
+    background: #e5e7eb;
+}
+
+.education-content {
+    padding: 24px;
+}
+
+.education-card {
+    overflow: hidden;
+}
+.education-card-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px 16px 0 0;
+}
+        .education {
+            background: #ffffff;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .education-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .education-content {
+            padding: 22px;
+        }
+
+        .education-category {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #079d91;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .education-content h3 {
+            margin: 0 0 10px;
+            color: #111827;
+            font-size: 1.15rem;
+            line-height: 1.4;
+        }
+
+        .education-content p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .education-link {
+            color: #087f78;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .education-link:hover {
+            text-decoration: underline;
+        }
+
+        .education-more {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .education-more a {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #087f78;
+            color: #ffffff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
 @media (max-width: 850px) {
+
+            .education-grid {
+                grid-template-columns: 1fr 1fr;
+            }
 
 .schedule-wrapper table,
 .schedule-wrapper tbody,
@@ -647,6 +760,10 @@ tbody tr:hover {
         }
 
         @media (max-width: 550px) {
+
+                    .education-grid {
+                grid-template-columns: 1fr;
+            }
             .service-grid {
                 grid-template-columns: 1fr;
             }
@@ -975,6 +1092,99 @@ tbody tr:hover {
             </div>
 
         </div>
+
+<section class="education" id="edukasi">
+    <div class="container">
+
+        <div class="section-header">
+            <span>Edukasi Kesehatan</span>
+            <h2>Informasi Kesehatan untuk Anda dan Keluarga</h2>
+            <p>
+                Baca informasi kesehatan praktis dari Klinik Pratama Gading
+                untuk membantu Anda lebih memahami kapan perlu menjaga,
+                memantau, atau memeriksakan kondisi kesehatan.
+            </p>
+        </div>
+
+        <div class="education-grid">
+
+            <article class="education-card">
+
+    <img
+        src="assets/edukasi-demam.png"
+        alt="Ilustrasi edukasi tentang demam"
+        class="education-image"
+    >
+
+    <div class="education-content">
+        <span class="education-category">Kesehatan Umum</span>
+
+        <h3>Kapan Demam Perlu Diperiksakan ke Dokter?</h3>
+
+        <p>
+            Demam sering dapat dipantau di rumah, tetapi beberapa kondisi
+            memerlukan pemeriksaan lebih lanjut.
+        </p>
+
+        <!-- Demam -->
+<a href="artikel-demam.html" class="education-link">
+    Baca selengkapnya →
+</a>
+    </div>
+
+</article>
+
+            <article class="education-card">
+                <img
+    src="assets/edukasi-gigi.png"
+    alt="Ilustrasi edukasi kesehatan gigi"
+    class="education-image"
+>
+                <div class="education-content">
+                    <span class="education-category">Kesehatan Gigi</span>
+                    <h3>Gigi Berlubang: Kapan Sebaiknya Ditambal?</h3>
+                    <p>
+                        Mengenali keluhan sejak awal dapat membantu mencegah
+                        kerusakan gigi menjadi lebih berat.
+                    </p>
+                    <!-- Gigi -->
+<a href="artikel-gigi.html" class="education-link">
+    Baca selengkapnya →
+</a>
+                </div>
+            </article>
+
+            <article class="education-card">
+                <img
+    src="assets/edukasi-kehamilan.png"
+    alt="Ilustrasi edukasi kehamilan"
+    class="education-image"
+>
+                <div class="education-content">
+                    <span class="education-category">Kehamilan</span>
+                    <h3>Tanda Bahaya pada Kehamilan yang Perlu Diperhatikan</h3>
+                    <p>
+                        Ketahui beberapa kondisi yang sebaiknya segera
+                        dikonsultasikan kepada tenaga kesehatan.
+                    </p>
+                    <!-- Kehamilan -->
+<a href="artikel-kehamilan.html" class="education-link">
+    Baca selengkapnya →
+</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="education-more">
+            <a href="edukasi.html">
+                Lihat Semua Edukasi Kesehatan
+            </a>
+        </div>
+
+    </div>
+</section>
+
     </section>
 
     <section class="about" id="tentang">

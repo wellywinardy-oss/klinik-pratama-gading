@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edukasi Kesehatan | Klinik Pratama Gading</title>
+    <link rel="icon" type="image/png" href="assets/logo-gading.png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: #f8fafc;
+        }
+
+        .container {
+            width: min(100% - 32px, 1120px);
+            margin: 0 auto;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #55bd32;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .brand strong {
+            color: #ef1b23;
+        }
+
+        main {
+            padding: 56px 0;
+        }
+
+        .page-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 42px;
+        }
+
+        .page-header span {
+            display: inline-block;
+            color: #079d91;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .page-header h1 {
+            color: #111827;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #6b7280;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-content {
+            padding: 22px;
+        }
+
+        .article-category {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #079d91;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-content h2 {
+            font-size: 1.15rem;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .article-content p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .article-link {
+            color: #087f78;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .article-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 36px;
+            color: #0f766e;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 28px 0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 850px) {
+            .article-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            main {
+                padding: 36px 0;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="brand">
+            <img src="assets/logo-gading.png" alt="Logo Klinik Pratama Gading">
+            <span>Klinik Pratama <strong>Gading</strong></span>
+        </a>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <div class="page-header">
+            <span>Edukasi Kesehatan</span>
+            <h1>Informasi Kesehatan untuk Anda dan Keluarga</h1>
+            <p>
+                Kumpulan artikel kesehatan dari Klinik Pratama Gading
+                untuk membantu pasien dan keluarga memahami berbagai
+                topik kesehatan dengan bahasa yang mudah dipahami.
+            </p>
+        </div>
+
+        <div class="article-grid">
+
+            <article class="article-card">
+                <img
+                    src="assets/edukasi-demam.png"
+                    alt="Ilustrasi edukasi tentang demam"
+                >
+
+                <div class="article-content">
+                    <span class="article-category">Kesehatan Umum</span>
+                    <h2>Kapan Demam Perlu Diperiksakan ke Dokter?</h2>
+                    <p>
+                        Demam sering dapat dipantau di rumah, tetapi beberapa
+                        kondisi memerlukan pemeriksaan lebih lanjut.
+                    </p>
+                    <a href="artikel-demam.html" class="article-link">
+    Baca artikel →
+</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img
+                    src="assets/edukasi-gigi.png"
+                    alt="Ilustrasi edukasi kesehatan gigi"
+                >
+
+                <div class="article-content">
+                    <span class="article-category">Kesehatan Gigi</span>
+                    <h2>Gigi Berlubang: Kapan Sebaiknya Ditambal?</h2>
+                    <p>
+                        Mengenali keluhan sejak awal dapat membantu mencegah
+                        kerusakan gigi menjadi lebih berat.
+                    </p>
+                    <a href="artikel-gigi.html" class="article-link">
+    Baca artikel →
+</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img
+                    src="assets/edukasi-kehamilan.png"
+                    alt="Ilustrasi edukasi kehamilan"
+                >
+
+                <div class="article-content">
+                    <span class="article-category">Kehamilan</span>
+                    <h2>Tanda Bahaya pada Kehamilan yang Perlu Diperhatikan</h2>
+                    <p>
+                        Ketahui beberapa kondisi yang sebaiknya segera
+                        dikonsultasikan kepada tenaga kesehatan.
+                    </p>
+                    <a href="artikel-kehamilan.html" class="article-link">
+    Baca artikel →
+</a>
+                </div>
+            </article>
+
+        </div>
+
+        <a href="index.html#edukasi" class="back-link">
+            ← Kembali ke Beranda
+        </a>
+
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        Klinik Pratama Gading
+    </div>
+</footer>
+
+</body>
+</html>
