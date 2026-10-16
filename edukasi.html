@@ -82,6 +82,37 @@
             color: #6b7280;
         }
 
+        .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-button {
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+    border-color: #079d91;
+    color: #087f78;
+}
+
+.filter-button.active {
+    background: #087f78;
+    border-color: #087f78;
+    color: #ffffff;
+}
+
         .article-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -206,9 +237,31 @@
             </p>
         </div>
 
+        <div class="filter-bar">
+    <button class="filter-button active" data-filter="all">
+        Semua
+    </button>
+
+    <button class="filter-button" data-filter="umum">
+        Kesehatan Umum
+    </button>
+
+    <button class="filter-button" data-filter="gigi">
+        Kesehatan Gigi
+    </button>
+
+    <button class="filter-button" data-filter="kehamilan">
+        Kehamilan
+    </button>
+
+    <button class="filter-button" data-filter="interna">
+    Penyakit Dalam
+</button>
+</div>
+
         <div class="article-grid">
 
-            <article class="article-card">
+            <article class="article-card" data-category="umum">
                 <img
                     src="assets/edukasi-demam.png"
                     alt="Ilustrasi edukasi tentang demam"
@@ -227,7 +280,7 @@
                 </div>
             </article>
 
-            <article class="article-card">
+            <article class="article-card" data-category="gigi">
                 <img
                     src="assets/edukasi-gigi.png"
                     alt="Ilustrasi edukasi kesehatan gigi"
@@ -246,7 +299,7 @@
                 </div>
             </article>
 
-            <article class="article-card">
+            <article class="article-card" data-category="kehamilan">
                 <img
                     src="assets/edukasi-kehamilan.png"
                     alt="Ilustrasi edukasi kehamilan"
@@ -265,6 +318,31 @@
                 </div>
             </article>
 
+<article class="article-card" data-category="interna">
+    <img
+        src="assets/edukasi-hipertensi.png"
+        alt="Ilustrasi edukasi hipertensi"
+    >
+
+    <div class="article-content">
+        <span class="article-category">Penyakit Dalam</span>
+
+        <h2>
+            Tekanan Darah Tinggi Sering Tanpa Gejala:
+            Mengapa Tetap Perlu Diperiksa?
+        </h2>
+
+        <p>
+            Kenali tekanan darah tinggi, faktor risiko, dan alasan
+            mengapa pemeriksaan berkala tetap penting.
+        </p>
+
+        <a href="artikel-hipertensi.html" class="article-link">
+            Baca artikel →
+        </a>
+    </div>
+</article>
+
         </div>
 
         <a href="index.html#edukasi" class="back-link">
@@ -279,6 +357,36 @@
         Klinik Pratama Gading
     </div>
 </footer>
+
+<script>
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const selectedCategory = button.dataset.filter;
+
+            filterButtons.forEach((item) => {
+                item.classList.remove('active');
+            });
+
+            button.classList.add('active');
+
+            articleCards.forEach((card) => {
+                const cardCategory = card.dataset.category;
+
+                if (
+                    selectedCategory === 'all' ||
+                    cardCategory === selectedCategory
+                ) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
