@@ -1107,77 +1107,9 @@ tbody tr:hover {
             </p>
         </div>
 
-        <div class="education-grid">
+        <div class="education-grid" id="latest-articles"></div>
 
-            <article class="education-card">
-
-    <img
-        src="assets/edukasi-demam.png"
-        alt="Ilustrasi edukasi tentang demam"
-        class="education-image"
-    >
-
-    <div class="education-content">
-        <span class="education-category">Kesehatan Umum</span>
-
-        <h3>Kapan Demam Perlu Diperiksakan ke Dokter?</h3>
-
-        <p>
-            Demam sering dapat dipantau di rumah, tetapi beberapa kondisi
-            memerlukan pemeriksaan lebih lanjut.
-        </p>
-
-        <!-- Demam -->
-<a href="artikel-demam.html" class="education-link">
-    Baca selengkapnya →
-</a>
-    </div>
-
-</article>
-
-            <article class="education-card">
-                <img
-    src="assets/edukasi-gigi.png"
-    alt="Ilustrasi edukasi kesehatan gigi"
-    class="education-image"
->
-                <div class="education-content">
-                    <span class="education-category">Kesehatan Gigi</span>
-                    <h3>Gigi Berlubang: Kapan Sebaiknya Ditambal?</h3>
-                    <p>
-                        Mengenali keluhan sejak awal dapat membantu mencegah
-                        kerusakan gigi menjadi lebih berat.
-                    </p>
-                    <!-- Gigi -->
-<a href="artikel-gigi.html" class="education-link">
-    Baca selengkapnya →
-</a>
-                </div>
-            </article>
-
-            <article class="education-card">
-                <img
-    src="assets/edukasi-kehamilan.png"
-    alt="Ilustrasi edukasi kehamilan"
-    class="education-image"
->
-                <div class="education-content">
-                    <span class="education-category">Kehamilan</span>
-                    <h3>Tanda Bahaya pada Kehamilan yang Perlu Diperhatikan</h3>
-                    <p>
-                        Ketahui beberapa kondisi yang sebaiknya segera
-                        dikonsultasikan kepada tenaga kesehatan.
-                    </p>
-                    <!-- Kehamilan -->
-<a href="artikel-kehamilan.html" class="education-link">
-    Baca selengkapnya →
-</a>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="education-more">
+<div class="education-more">
             <a href="edukasi.html">
                 Lihat Semua Edukasi Kesehatan
             </a>
@@ -1278,6 +1210,40 @@ tbody tr:hover {
     });
 });
     });
+</script>
+<script src="articles.js"></script>
+<script>
+    const latestArticlesContainer = document.getElementById('latest-articles');
+
+    const latestArticles = [...articles]
+        .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+        .slice(0, 3);
+
+    latestArticlesContainer.innerHTML = latestArticles
+        .map((article) => `
+            <article class="education-card">
+                <img
+                    src="${article.image}"
+                    alt="${article.title}"
+                    class="education-image"
+                >
+
+                <div class="education-content">
+                    <span class="education-category">
+                        ${article.category}
+                    </span>
+
+                    <h3>${article.title}</h3>
+
+                    <p>${article.summary}</p>
+
+                    <a href="${article.url}" class="education-link">
+                        Baca selengkapnya →
+                    </a>
+                </div>
+            </article>
+        `)
+        .join('');
 </script>
 
 </body>
