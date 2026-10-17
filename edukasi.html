@@ -153,6 +153,27 @@
             color: #6b7280;
         }
 
+        .search-box {
+    max-width: 620px;
+    margin: 0 auto 22px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #111827;
+    background: #ffffff;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #079d91;
+    box-shadow: 0 0 0 3px rgba(7, 157, 145, 0.12);
+}
+
         .filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -308,6 +329,17 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #6b7280;
+    padding: 40px 20px;
+    background: #ffffff;
+    border: 1px dashed #d1d5db;
+    border-radius: 14px;
+}
+
     </style>
 </head>
 
@@ -353,6 +385,15 @@
                 topik kesehatan dengan bahasa yang mudah dipahami.
             </p>
         </div>
+
+        <div class="search-box">
+    <input
+        type="search"
+        id="article-search"
+        placeholder="Cari artikel kesehatan..."
+        aria-label="Cari artikel kesehatan"
+    >
+</div>
 
         <div class="filter-bar">
     <button class="filter-button active" data-filter="all">
@@ -413,53 +454,84 @@
     const sortedArticles = [...articles]
         .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
-    function renderArticles(selectedCategory = 'all') {
-        const filteredArticles = selectedCategory === 'all'
-            ? sortedArticles
-            : sortedArticles.filter(
-                (article) => article.categoryKey === selectedCategory
-            );
+    function renderArticles(selectedCategory = 'all', searchTerm = '') {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
 
-        allArticlesContainer.innerHTML = filteredArticles
-            .map((article) => `
-                <article class="article-card" data-category="${article.categoryKey}">
-                    <img
-                        src="${article.image}"
-                        alt="${article.title}"
-                    >
+    const filteredArticles = sortedArticles.filter((article) => {
+        const matchesCategory =
+            selectedCategory === 'all' ||
+            article.categoryKey === selectedCategory;
 
-                    <div class="article-content">
-                        <span class="article-category">
-                            ${article.category}
-                        </span>
+        const matchesSearch =
+            article.title.toLowerCase().includes(normalizedSearch) ||
+            article.summary.toLowerCase().includes(normalizedSearch) ||
+            article.category.toLowerCase().includes(normalizedSearch);
 
-                        <h2>${article.title}</h2>
+        return matchesCategory && matchesSearch;
+    });
 
-                        <p>${article.summary}</p>
+    allArticlesContainer.innerHTML = filteredArticles
+        .map((article) => `
+            <article class="article-card" data-category="${article.categoryKey}">
+                <img
+                    src="${article.image}"
+                    alt="${article.title}"
+                >
 
-                        <a href="${article.url}" class="article-link">
-                            Baca artikel →
-                        </a>
-                    </div>
-                </article>
-            `)
-            .join('');
-    }
+                <div class="article-content">
+                    <span class="article-category">
+                        ${article.category}
+                    </span>
+
+                    <h2>${article.title}</h2>
+
+                    <p>${article.summary}</p>
+
+                    <a href="${article.url}" class="article-link">
+                        Baca artikel →
+                    </a>
+                </div>
+            </article>
+        `)
+        .join('');
+
+        if (filteredArticles.length === 0) {
+    allArticlesContainer.innerHTML = `
+        <p class="empty-state">
+            Artikel tidak ditemukan.
+        </p>
+    `;
+}
+}
 
     renderArticles();
 
     const filterButtons = document.querySelectorAll('.filter-button');
+    const searchInput = document.getElementById('article-search');
+let activeCategory = 'all';
 
     filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach((item) => {
-                item.classList.remove('active');
-            });
-
-            button.classList.add('active');
-            renderArticles(button.dataset.filter);
+    button.addEventListener('click', () => {
+        filterButtons.forEach((item) => {
+            item.classList.remove('active');
         });
+
+        button.classList.add('active');
+        activeCategory = button.dataset.filter;
+
+        renderArticles(
+            activeCategory,
+            searchInput.value
+        );
     });
+});
+
+searchInput.addEventListener('input', () => {
+    renderArticles(
+        activeCategory,
+        searchInput.value
+    );
+});
 </script>
 </body>
 </html>
