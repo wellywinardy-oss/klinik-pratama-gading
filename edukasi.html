@@ -340,6 +340,18 @@
     border-radius: 14px;
 }
 
+.article-badge {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 999px;
+    line-height: 1;
+}
+
     </style>
 </head>
 
@@ -471,7 +483,11 @@
     });
 
     allArticlesContainer.innerHTML = filteredArticles
-        .map((article) => `
+    .map((article) => {
+        const isLatest =
+            article.url === sortedArticles[0].url;
+
+        return `
             <article class="article-card" data-category="${article.categoryKey}">
                 <img
                     src="${article.image}"
@@ -479,6 +495,8 @@
                 >
 
                 <div class="article-content">
+                    ${isLatest ? '<span class="article-badge">Terbaru</span>' : ''}
+
                     <span class="article-category">
                         ${article.category}
                     </span>
@@ -492,8 +510,9 @@
                     </a>
                 </div>
             </article>
-        `)
-        .join('');
+        `;
+    })
+    .join('');
 
         if (filteredArticles.length === 0) {
     allArticlesContainer.innerHTML = `
