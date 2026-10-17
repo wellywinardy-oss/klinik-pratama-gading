@@ -25,6 +25,78 @@
             width: min(100% - 32px, 900px);
             margin: 0 auto;
         }
+        /* NAVBAR */
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #62bd3f;
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.brand img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.brand span {
+    color: #62bd3f;
+}
+
+.brand strong {
+    color: #ef2024;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: #b91c1c;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #0f766e;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px;
+}
 
         header {
             background: #ffffff;
@@ -139,6 +211,33 @@
         }
 
         @media (max-width: 600px) {
+            .menu-toggle {
+    display: block;
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-links.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 20px 18px;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-links.active li a {
+    display: block;
+    padding: 9px 0;
+}
             main {
                 padding: 30px 0;
             }
@@ -156,14 +255,34 @@
 
 <body>
 
-<header>
-    <div class="container">
+<nav class="navbar">
+    <div class="container nav-content">
+
         <a href="index.html" class="brand">
             <img src="assets/logo-gading.png" alt="Logo Klinik Pratama Gading">
             <span>Klinik Pratama <strong>Gading</strong></span>
         </a>
+
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Buka menu navigasi"
+        >
+            &#9776;
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html#beranda">Beranda</a></li>
+            <li><a href="index.html#layanan">Layanan</a></li>
+            <li><a href="index.html#jadwal">Jadwal Dokter</a></li>
+            <li><a href="edukasi.html">Edukasi</a></li>
+            <li><a href="index.html#tentang">Tentang Kami</a></li>
+            <li><a href="index.html#kontak">Kontak</a></li>
+        </ul>
+
     </div>
-</header>
+</nav>
+
 
 <main>
     <div class="container">
@@ -246,6 +365,19 @@
         Klinik Pratama Gading
     </div>
 </footer>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
+    menuToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
 </body>
 </html>
