@@ -24,8 +24,8 @@ reviewedBy: null
     },
     {
         title: 'Tanda Bahaya pada Kehamilan yang Perlu Diperhatikan',
-        category: 'Kehamilan',
-        categoryKey: 'kehamilan',
+        category: 'Kebidanan & Penyakit Kandungan',
+        categoryKey: 'kebidanan-kandungan',
         summary: 'Ketahui beberapa kondisi yang sebaiknya segera dikonsultasikan kepada tenaga kesehatan.',
         image: 'assets/edukasi-kehamilan.png',
         url: 'artikel-kehamilan.html',
